@@ -8,10 +8,13 @@ Raissa Yukie Rodrigues
 
 #include <stdio.h>
 #include <stdlib.h>
-/* Define o valor máximo da string a ser analisada e da nossa pilha também */
-#define MAX 21
+#include <locale.h>
+
+#define MAX 21 /* Define o valor máximo da string a ser analisada e da nossa pilha também */
 int inicio = 0, topo = 0;
-char pilha[MAX];
+char pilha[MAX]; /*Essa pilha será usada para trabalhar os pareteses*/
+char input[MAX];  /*Essa string será o input da equação do usuario */
+int flag = 1; /*Diz se uma euqação é verdadeira ou não. 0 false 1 true */
 
 /* Cabeçalhos de funções a serem utilizadas*/
 
@@ -19,6 +22,7 @@ int pilhaVazia();
 int pilhaCheia();
 void push(char x);
 char pop();
+void contaPt();
 
 /*inicia pilha*/
 /*struct pilha
@@ -27,29 +31,25 @@ char pop();
 	int elementos[MAX];
 };*/
 
-
-
-
 /* main */
 int main(int argc, char const *argv[])
 {
-	/* Input do Usuário com sua equação */
-	char input[MAX]; 	
+	setlocale(LC_ALL, "Portuguese");
 	
-	//printf("Entre sua equação: \n");
+	/* Input do Usuário com sua equação */
+	printf("Insira sua equação: \n");
 	
 	/*Recebe do teclado do Usuário*/
 	//gets(input);
-	//fgets(input, sizeof(input), stdin);
+	fgets(input, sizeof(input), stdin);
 
-	//printf("\nSua equação foi: \n");
-	//printf("%s\n", input);
+	printf("\nSua equação foi: \n");
+	printf("%s\n", input);
 
 	//struct pilha calc;
 	//calc.topo = -1;
-
 	//testaSeVazia(ptpilha);
-
+	/*
 	push('E');
 	push('a');
 	push('i');
@@ -59,9 +59,9 @@ int main(int argc, char const *argv[])
 	printf("%c\n", pop());
 	printf("%c\n", pop());
 	printf("%c\n", pop());
-	
+	*/
 
-
+	contaPt();
 	return 0;
 }
 
@@ -79,7 +79,7 @@ void push(char x){
 		pilha[topo++] = x; 
 	}
 	else {
-		printf("Pilha esta cheia!\n");
+		printf("Pilha está cheia!\n");
 	}
 }
 char pop(){
@@ -91,9 +91,57 @@ char pop(){
 	 	return aux;
 	 } 
 	 else {
-	 	printf("Pilha esta vazia!\n");
+	 	printf("Pilha está vazia!\n");
 	 }
 }
+
+/*Função que contab o numero de parenteses e retorna true se for valida ou false se não*/
+void contaPt(){
+	int i = 0;
+	char aux;
+	char e;
+	while(i < 20 ){
+
+		e = input[i];
+
+		if (e == '('){
+			push(e);
+		}
+
+		if(e == ')'){
+			if( pilhaVazia() ){
+				flag = 0;
+			} 
+			else{
+				aux = pop();
+				if(aux != '('){
+					flag = 0;
+				}
+			}
+		}
+		i++;
+	}
+	if (!pilhaVazia()){
+		flag = 0; 
+	}
+	if(flag != 0)
+		printf("A equação inserida é válida.\n");
+	else
+		printf("ERROR A equação inserida não é válida.\n");
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
