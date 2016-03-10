@@ -3,6 +3,6 @@ IF63C S73 Prof Hilton <br>
 
 Trabalhos e projetos para a disciplina de Estrutura de Dados I CSF20 ou IF63C 
 da Universidade Tecnológica Federal do Paraná - UTFPR 
-
-credits in the sourc-code too.
-guilmour.com / twitter.com/guilmour
+<br>
+credits in the sourc-code too.<br>
+<a href="http://guilmour.com"> guilmour.com </a> / <a href="twitter.com/guilmour">  twitter.com/guilmour </a>
