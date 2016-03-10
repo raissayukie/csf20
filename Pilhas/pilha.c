@@ -10,10 +10,11 @@ Raissa Yukie Rodrigues
 #include <stdlib.h>
 #include <locale.h>
 
-#define MAX 21 /* Define o valor máximo da string a ser analisada e da nossa pilha também */
+#define MAX 20 /* Define o valor máximo da string a ser analisada e da nossa pilha também */
 int inicio = 0, topo = 0;
-char pilha[MAX]; /*Essa pilha será usada para trabalhar os pareteses*/
+char pilha[MAX]; /*Essa pilha será usada para trabalhar os parenteses*/
 char input[MAX];  /*Essa string será o input da equação do usuario */
+char numeros[MAX];  /*Essa pilha */
 int flag = 1; /*Diz se uma euqação é verdadeira ou não. 0 false 1 true */
 
 /* Cabeçalhos de funções a serem utilizadas*/
@@ -23,6 +24,7 @@ int pilhaCheia();
 void push(char x);
 char pop();
 void contaPt();
+void calc();
 
 /*inicia pilha*/
 /*struct pilha
@@ -62,6 +64,7 @@ int main(int argc, char const *argv[])
 	*/
 
 	contaPt();
+	calc();
 	return 0;
 }
 
@@ -127,11 +130,36 @@ void contaPt(){
 	if(flag != 0)
 		printf("A equação inserida é válida.\n");
 	else
-		printf("ERROR A equação inserida não é válida.\n");
-
-
+		printf("ERROR! A equação inserida não é válida.\n");
 }
 
+void calc(){
+	int result = 0;
+	int i = 0;
+	char aux;
+	char e;
+	while(i < 20 ){
+
+			if(input[i] == '+'){
+				result = result + ((input[i-1] - '0') + (input[i+1]- '0'));
+			}
+			
+			else if(input[i] == '-'){
+				result = result + ((input[i-1]- '0') - (input[i+1]- '0'));
+			}
+			
+			else if(input[i] == '*'){
+				result = result + ((input[i-1]- '0') * (input[i+1]- '0'));
+			}
+			else if(input[i] == '/'){
+				result = result + ((input[i-1]- '0') / (input[i+1]- '0'));
+			}
+
+			i++;
+		}
+
+		printf("O resultado foi %d\n", result);
+}
 
 
 
