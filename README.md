@@ -1,4 +1,4 @@
-#Estrutura de Dados 1 - CSF20 - Prof. Hilton - UTFPR
+#Estrutura de Dados 1 CSF20
 IF63C S73 Prof Hilton <br>
 
 Trabalhos e projetos para a disciplina de Estrutura de Dados I CSF20 ou IF63C 
