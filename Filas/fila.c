@@ -9,8 +9,9 @@ Raissa Yukie Rodrigues
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#define KGRN  "\x1B[32m"
 
-#define MAX 20 /* Define o valor máximo da string a ser analisada e da nossa fila também */
+#define MAX 40 /* Define o valor máximo da string a ser analisada e da nossa fila também */
 
 /*Tipo abstrato de Fila */
 typedef struct{
@@ -47,33 +48,53 @@ int retiraDaFila(Fila* q){
 
 }
 
+
+
 int main(int argc, char const *argv[])
 {
 	setlocale(LC_ALL, "Portuguese");
-	printf("Olar!!!\n");
-	Fila* q = criarFila();
-	incluiNaFila(q, 10);
-	incluiNaFila(q, 12);
-	incluiNaFila(q, 13);
-	incluiNaFila(q, 14);
-	incluiNaFila(q, 15);
-	incluiNaFila(q, 16);
 
-	printf("%d\n", retiraDaFila(q));
-	printf("%d\n", retiraDaFila(q));
-	printf("%d\n", retiraDaFila(q));
-	printf("%d\n", retiraDaFila(q));
-	printf("%d\n", retiraDaFila(q));
-	printf("%d\n", retiraDaFila(q));
+	int i = 0;
+
+	Fila* q = criaFila();
+
+	
+	for (i = 0; i < 10; i++)
+	{
+		incluiNaFila(q, i+1);
+	}
 
 
-
-
+	
+	for (i = 0; i < 10; i++)
+	{
+		printf("|.%d.|", retiraDaFila(q));
+	}
 
 
 
-
-
-
+	free(q);
+	printf("\n");
 	return 0;
 }
+
+
+
+/* DESCONSIDERAR 
+
+
+	printf(":::::::::::::::::::::: URBS :::::::::::::::::::::\n");
+	printf("\n");
+	printf(":::::::Av. Mal. Floriano :::::::  "KGRN" >>>>>>   \n");
+	printf("------------------------------------------\n");
+	printf("\n------------------------------------------\n");
+	printf("\n::::::Av. Mal. Floriano :::::::    <<<<<<   \n"); 
+	printf("------------------------------------------\n");
+	printf("\n------------------------------------------\n");
+	
+
+
+
+
+
+*/
