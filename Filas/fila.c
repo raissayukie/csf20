@@ -10,8 +10,26 @@ Raissa Yukie Rodrigues
 #include <stdlib.h>
 #include <locale.h>
 
-int int main(int argc, char const *argv[])
+#define MAX 20 /* Define o valor máximo da string a ser analisada e da nossa fila também */
+
+typedef struct{
+	
+	int v[MAX];
+	int inicio, fim;
+
+}Fila;
+
+Fila* criarFila(){
+	Fila* q = (Fila*)
+		malloc (sizeof(Fila));
+	q -> inicio;
+	q -> fim;
+	return q; 	
+}  
+
+int main(int argc, char const *argv[])
 {
 	setlocale(LC_ALL, "Portuguese");
+	printf("Olar!!!\n");
 	return 0;
 }
