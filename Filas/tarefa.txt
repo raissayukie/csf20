@@ -1,1 +1,9 @@
-teste
+A tarefa sobre filas deve conter:
+
+Objetivo: A descrição do problema em uma frase (máximo de 3 linhas)
+Condições de contorno: As restrições que caracterizam o problema
+Abordagem: Como que sua equipe utilizou o conceito de filas para modelar o problema
+O algoritmo: Descrição do algoritmo com abstração de funções e detalhes
+A cópia de tela que apresenta a execução do código.
+A declaração de todos os membros da equipe que não estão cometendo plágio de qualquer natureza sob pena de reprovação sumária na disciplina.
+O código organizado, comentado e com indicação de autoria por blocos/funções, funcionalidades. 
