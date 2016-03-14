@@ -1,6 +1,6 @@
 /*
 Est. Dados 1 (S13)- UTFPR - Fila
-Guilmour Rossi
+Guilmour H. D. Rossi
 Marinho Welter
 Pedro Pereira
 Raissa Yukie Yamasaki Rodrigues
@@ -11,10 +11,11 @@ Raissa Yukie Yamasaki Rodrigues
 #include <locale.h>
 #define KGRN  "\x1B[32m"
 
-#define MAX 40 /* Define o valor máximo da string a ser analisada e da nossa fila também  (nao seria 10???)*/ 
+#define MAX 40 /* Define o valor máximo da string a ser analisada e da nossa fila também*/ 
 
 /*Tipo abstrato de Fila */
-typedef struct{          // struct controleFila
+/* Struct controleFila*/
+typedef struct{          
 	
 	int v[MAX];
 	int inicio, fim; //tamanho lista?? carro *fim; int tamanho;
