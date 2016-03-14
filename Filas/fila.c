@@ -1,9 +1,9 @@
 /*
-Est. Dados 1 (S73)- UTFPR - Pilhas
+Est. Dados 1 (S13)- UTFPR - Fila
 Guilmour Rossi
 Marinho Welter
 Pedro Pereira
-Raissa Yukie Rodrigues
+Raissa Yukie Yamasaki Rodrigues
 */
 
 #include <stdio.h>
@@ -11,15 +11,24 @@ Raissa Yukie Rodrigues
 #include <locale.h>
 #define KGRN  "\x1B[32m"
 
-#define MAX 40 /* Define o valor máximo da string a ser analisada e da nossa fila também */
+#define MAX 40 /* Define o valor máximo da string a ser analisada e da nossa fila também  (nao seria 10???)*/ 
 
 /*Tipo abstrato de Fila */
-typedef struct{
+typedef struct{          // struct controleFila
 	
 	int v[MAX];
-	int inicio, fim;
+	int inicio, fim; //tamanho lista?? carro *fim; int tamanho;
 
 }Fila;
+
+
+/* Elemento fila */
+typedef struct carroFila{
+	
+	int *tempoSaida;
+	struct carroFila *seguinte;
+
+}carro;
 
 /*Função que cria a fila*/
 Fila* criaFila(){
