@@ -15,11 +15,12 @@ Raissa Yukie Yamasaki Rodrigues
 
 int main ()
 {
+    //quando criar uma fila setar inicio, fim e posicao em 0, só ra garantir!
 
 return 0;
 }
 
-typedef struct fila
+typedef struct fila //variavel tipo fila
 {
 
     int inicio;
@@ -29,7 +30,7 @@ typedef struct fila
 
 };
 
-void incluiFila(int c, struct fila *f)
+void incluiFila(int c, struct fila *f) //inclui o elemento c na fila
 {
 
     f->fila[f->posicao]=c;
@@ -37,7 +38,7 @@ void incluiFila(int c, struct fila *f)
     f->posicao++;
 }
 
-int retiraDaFila(struct fila *f)
+int retiraDaFila(struct fila *f)//retira o primeiro elemento da fila e retorna o elemento retirado
 {
     int retirado;
     retirado=f->fila[0];
@@ -61,13 +62,13 @@ int filaVazia( struct fila *f)//retorna 0 se a fila esta vazia e 1 se tem elemen
     else return 1;
 }
 
-void limpaFila(struct fila *f)
+void limpaFila(struct fila *f) //apaga todos os elementos da fila
 {
     f->inicio=0;
     f->fim=0;
 }
 
-int primeiroElemento(struct fila *f)
+int primeiroElemento(struct fila *f) //returna o primeiro elemento da fila
 {
     int p;
     p=f->fila[f->inicio];
