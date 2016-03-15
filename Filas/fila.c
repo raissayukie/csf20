@@ -11,100 +11,61 @@ Raissa Yukie Yamasaki Rodrigues
 #include <locale.h>
 #define KGRN  "\x1B[32m"
 
-#define MAX 40 /* Define o valor máximo da string a ser analisada e da nossa fila também*/ 
+#define MAX 10
 
-/*Tipo abstrato de Fila */
-/* Struct controleFila*/
-typedef struct{          
-	
-	int v[MAX];
-	int inicio, fim; //tamanho lista?? carro *fim; int tamanho;
-
-}Fila;
-
-
-/* Elemento fila */
-typedef struct carroFila{
-	
-	int *tempoSaida;
-	struct carroFila *seguinte;
-
-}carro;
-
-/*Função que cria a fila*/
-Fila* criaFila(){
-	Fila* q = (Fila*)
-	malloc (sizeof(Fila));
-	q -> inicio;
-	q -> fim;
-	return q; 	
-}  
-
-/* Adiciona o elemento recebido no fim da fila e incrementa fim*/
-void incluiNaFila (Fila* q, int x){	
-	q -> v[q -> fim++] = x; 
-	if(q -> fim == MAX){
-		q -> fim = 0;
-	}
-}
-
-/*Remove o elemento do fim da fila */
-int retiraDaFila(Fila* q){
-	int x = q -> v[q->inicio++];
-	if (q -> inicio == MAX){
-		q -> inicio;
-	} 
-	return x;
-
-}
-
-
-
-int main(int argc, char const *argv[])
+void main ()
 {
-	setlocale(LC_ALL, "Portuguese");
-
-	int i = 0;
-
-	Fila* q = criaFila();
-
-	
-	for (i = 0; i < 10; i++)
-	{
-		incluiNaFila(q, i+1);
-	}
 
 
-	
-	for (i = 0; i < 10; i++)
-	{
-		printf("|.%d.|", retiraDaFila(q));
-	}
-
-
-
-	free(q);
-	printf("\n");
-	return 0;
 }
 
+typedef struct fila
+{
 
+    int inicio=0, fim=0;
+    int fila[10];
+    int posicao=0;
 
-/* DESCONSIDERAR 
+};
 
+void incluiFila(int c, fila *f)
+{
 
-	printf(":::::::::::::::::::::: URBS :::::::::::::::::::::\n");
-	printf("\n");
-	printf(":::::::Av. Mal. Floriano :::::::  "KGRN" >>>>>>   \n");
-	printf("------------------------------------------\n");
-	printf("\n------------------------------------------\n");
-	printf("\n::::::Av. Mal. Floriano :::::::    <<<<<<   \n"); 
-	printf("------------------------------------------\n");
-	printf("\n------------------------------------------\n");
-	
+    f.fila[f.posicao]=c;
+    f.fim=f.posicao;
+    f.posicao++;
+}
 
+void retiraDaFila(fila *f)
+{
+    int retirado;
+    retirado=f.fila[f.inicio];
+    for (int i =0; i<f.fim -1; i++)
+    {
+        f.fila[i]=f.fila[i+1];
+    }
+    return retirado;
+}
 
+int filaVazia(fila *f)//retorna 0 se a fila esta vazia e 1 se tem elementos
+{
+    if (f.inicio==f.fim)
+    {
+        printf("fila vazia!!");
+        return false;
+    }
+    else return true;
+}
 
+void limpaFila(fila *f)
+{
+    f.inicio=0;
+    f.fim=0;
+}
 
-
-*/
+int primeiroElemento(fila *f)
+{
+    int p;
+    p=f.fila[f.inicio];
+    return p;
+}
