@@ -13,59 +13,63 @@ Raissa Yukie Yamasaki Rodrigues
 
 #define MAX 10
 
-void main ()
+int main ()
 {
 
-
+return 0;
 }
 
 typedef struct fila
 {
 
-    int inicio=0, fim=0;
-    int fila[10];
-    int posicao=0;
+    int inicio;
+    int fim;
+    int fila[MAX];
+    int posicao;
 
 };
 
-void incluiFila(int c, fila *f)
+void incluiFila(int c, struct fila *f)
 {
 
-    f.fila[f.posicao]=c;
-    f.fim=f.posicao;
-    f.posicao++;
+    f->fila[f->posicao]=c;
+    f->fim=f->posicao;
+    f->posicao++;
 }
 
-void retiraDaFila(fila *f)
+int retiraDaFila(struct fila *f)
 {
     int retirado;
-    retirado=f.fila[f.inicio];
-    for (int i =0; i<f.fim -1; i++)
+    retirado=f->fila[0];
+    int i;
+    for (i=0; i<f->fim -1; i++)
     {
-        f.fila[i]=f.fila[i+1];
+        f->fila[i]=f->fila[i+1];
     }
+    f->posicao--;
+    f->fim--;
     return retirado;
 }
 
-int filaVazia(fila *f)//retorna 0 se a fila esta vazia e 1 se tem elementos
+int filaVazia( struct fila *f)//retorna 0 se a fila esta vazia e 1 se tem elementos
 {
-    if (f.inicio==f.fim)
+    if (f->inicio==f->fim)
     {
         printf("fila vazia!!");
-        return false;
+        return 0;
     }
-    else return true;
+    else return 1;
 }
 
-void limpaFila(fila *f)
+void limpaFila(struct fila *f)
 {
-    f.inicio=0;
-    f.fim=0;
+    f->inicio=0;
+    f->fim=0;
 }
 
-int primeiroElemento(fila *f)
+int primeiroElemento(struct fila *f)
 {
     int p;
-    p=f.fila[f.inicio];
+    p=f->fila[f->inicio];
     return p;
 }
